@@ -22,7 +22,7 @@ jobs:
         run: npm install
       - name: Build Application
         run: npm run-script build
-      - uses: jakejarvis/s3-sync-action@main
+      - uses: jakejarvis/s3-sync-action@mmaster
         name: Upload App to S3 Bucket
         with:
           args: --follow-symlinks --delete
@@ -33,7 +33,7 @@ jobs:
           AWS_REGION: "eu-central-1"
           SOURCE_DIR: "dist"
       - name: Create CloudFront Cache Invalidation
-        uses: chetan/invalidate-cloudfront-action@main
+        uses: chetan/invalidate-cloudfront-action@master
         env:
           DISTRIBUTION: ${{ env.AWS_CF_DISTRIBUTION_ID }}
           PATHS: "/*"
