@@ -22,7 +22,7 @@ jobs:
         run: npm install
       - name: Build Application
         run: npm run-script build
-      - uses: jakejarvis/s3-sync-action@mmaster
+      - uses: jakejarvis/s3-sync-action@master
         name: Upload App to S3 Bucket
         with:
           args: --follow-symlinks --delete
