@@ -6656,7 +6656,7 @@ textarea.form-control-lg {
 
 .text-bg-primary {
   color: #fff !important;
-  background-color: RGBA(29, 128, 159, var(--bs-bg-opacity, 1)) !important;
+  background-color: RGBA(29, 128, 159, var(--bs-bg-opacity, 1));
 }
 
 .text-bg-secondary {
@@ -8128,7 +8128,7 @@ textarea.form-control-lg {
 
 .bg-primary {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity));
 }
 
 .bg-secondary {
@@ -10847,6 +10847,7 @@ html {
 
 .text-faded {
   color: rgba(255, 255, 255, 0.7);
+  font-size: 2rem;
 }
 
 .scroll-to-top {
@@ -10879,7 +10880,7 @@ html {
   height: 100%;
   transition: all 0.4s ease 0s;
   transform: translateX(250px);
-  background: #1D809F;
+  background: rgba(15,18,22,255);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -11016,10 +11017,11 @@ footer.footer .social-link:hover {
   height: auto;
   padding-top: 8rem;
   padding-bottom: 8rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../assets/img/header-4.png");
+  background: url("../assets/img/logocrop.png");
+  background-color: rgba(221,210,186,255);
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 50%;
 }
 .masthead h1, .masthead .h1 {
   font-size: 4rem;
