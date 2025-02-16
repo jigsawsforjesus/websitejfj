@@ -11118,9 +11118,18 @@ footer.footer .social-link:hover {
   max-width: 50%;
 }
 
+.heart{
+  margin-top:1%; 
+  max-width: 10%;
+}
+
 .grid-container{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr;
   place-items: center;
+}
+
+.header-background{
+  background-color: rgba(204,122,54,255);
 }
