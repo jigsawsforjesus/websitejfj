@@ -11118,15 +11118,26 @@ footer.footer .social-link:hover {
   max-width: 50%;
 }
 
-.heart{
+.icon-heart{
   margin-top:1%; 
   max-width: 10%;
 }
 
-.grid-container{
+.icon-instagram{
+  margin-top: -20%;
+}
+
+.grid-container-row{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr;
+  place-items: center;
+}
+
+.grid-container-column{
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: 1fr;
   place-items: center;
 }
 
