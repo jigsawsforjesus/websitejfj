@@ -11110,3 +11110,15 @@ footer.footer .social-link:hover {
   font-size: 2.25rem;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
+
+.icon {
+  margin-top: -10%;
+  max-width: 50%;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr;
+  place-items: center;
+}
