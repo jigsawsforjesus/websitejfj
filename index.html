@@ -16,6 +16,8 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Unless Puzzle CSS -->
+        <link href="css/unless-puzzle.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -25,7 +27,7 @@
                 <li class="sidebar-brand"><a href="#page-top">MENU</a></li>
                 <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
                 <li class="sidebar-nav-item"><a href="#services">Services</a></li>
-                <li class="sidebar-nav-item"><a href="#portfolio">Portfolio</a></li>
+                <li class="sidebar-nav-item"><a href="#portfolio">Puzzles</a></li>
                 <!--<li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
                 <li class="sidebar-nav-item"><a href="#about">About</a></li>-->
             </ul>
@@ -106,52 +108,46 @@
                 <div class="grid-container-row">
                     <div class="content-section-heading text-center">
                         <!--<h3 class="text-secondary mb-0">Portfolio</h3>-->
-                        <h2 class="mb-4">Recent Projects</h2>
+                        <h2 class="mb-4">Puzzles</h2>
                     </div>
                     <div class="col-lg-6">
-                        <a class="portfolio-item" href="https://www.epixo.com/en/eur/search?q=unless">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <!--<div class="h1">Template</div>-->
-                                    <!--<p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p> -->
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/unless.jpg" alt="unless poem" />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="https://www.epixo.com/en/eur/search?q=unless">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h1 mb-0">Unless 500pc Puzzle - Buy Here</div>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/unless500example.png" alt="unless 500 pc puzzle" />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="https://www.epixo.com/en/eur/search?q=unless">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h1 mb-0">Unless 300pc Puzzle - Buy Here
-                                        <!--<span class="buy">Buy Here</span> -->
+                        <div class="portfolio-item-container unless-puzzle-container">
+                            <div class="unless-puzzle-options">
+                                <a class="portfolio-item" href="https://www.epixo.com/en/eur/search?q=unless">
+                                    <img class="img-fluid unless-puzzle-main" src="assets/img/unless.jpg" alt="unless poem" />
+                                </a>
+                                <div class="unless-puzzle-hover">
+                                    <div class="unless-option">
+                                        <a class="portfolio-item" href="https://www.epixo.com/en/eur/search?q=unless">
+                                            <img class="img-fluid" src="assets/img/jigsawsforjesus-300.png" alt="unless 300 pc puzzle" />
+                                        </a>
+                                        <div class="caption-content">
+                                            <div class="h1 mb-0">Unless 300pc Puzzle - Buy Here</div>
+                                        </div>
+                                    </div>
+                                    <div class="unless-option">
+                                        <a class="portfolio-item" href="https://www.epixo.com/en/eur/search?q=unless">
+                                            <img class="img-fluid" src="assets/img/unless500example.png" alt="unless 500 pc puzzle" />
+                                        </a>
+                                        <div class="caption-content">
+                                            <div class="h1 mb-0">Unless 500pc Puzzle - Buy Here</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/jigsawsforjesus-300.png" alt="unless 300 pc puzzle" />
-                        </a>
+                        </div>
                     </div>
                     <div class="col-lg-6">
-                        <a class="portfolio-item" href="https://www.epixo.com/en/eur/product/freed-jigsawsforjesus-com-puzzle-300-pieces">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h1 mb-0">Freed 300pc Puzzle - Buy Here
-                                        <!--<span class="buy">Buy Here</span> -->
-                                    </div>
+                        <div class="portfolio-item-container">
+                            <a class="portfolio-item" href="https://www.epixo.com/en/eur/product/freed-jigsawsforjesus-com-puzzle-300-pieces">
+                                <img class="img-fluid" src="assets/img/freed-puzzle-box.png" alt="freed 300 pc puzzle" />
+                            </a>
+                            <div class="caption-content">
+                                <div class="h1 mb-0">Freed 300pc Puzzle - Buy Here
+                                    <!--<span class="buy">Buy Here</span> -->
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/freed-puzzle-box.png" alt="freed 300 pc puzzle" />
-                        </a>
+                        </div>
                     </div>
                     <!--</div>
                     <div class="col-lg-6">
@@ -188,18 +184,16 @@
                 <div class="grid-container-column">
                     <div class="grid-container-row">
                         <div class="col-lg-6">
-                            <img class="img-fluid" src="assets/img/dignity-health.jpg"/>
+                            <div class="donation-card">
+                                <img class="img-fluid" src="assets/img/dignity-health.jpg" alt="Dignity Health"/>
+                                <h4>Dignity Health - Northridge Hospital Medical Center</h4>
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <h4 class="mb-5">Dignity Health - Northridge Hospital Medical Center</h4>
-                        </div>
-                    </div>
-                    <div class="grid-container-row">
-                        <div class="col-lg-6">
-                            <img class="img-fluid" src="assets/img/adventist-glendale.jpg"/>
-                        </div>
-                        <div class="col-lg-6">
-                            <h4 class="mb-5">Adventist Health Glendale</h4>
+                            <div class="donation-card">
+                                <img class="img-fluid" src="assets/img/adventist-glendale.jpg" alt="Adventist Health"/>
+                                <h4>Adventist Health Glendale</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
