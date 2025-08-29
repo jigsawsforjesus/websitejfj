@@ -10889,9 +10889,23 @@ html {
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--spacing-md);
   position: relative;
+  text-align: center;
 }
 
 .content-section-heading h2::after, .content-section-heading .h2::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3rem;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: var(--border-radius-sm);
+}
+
+/* Ensure Puzzles heading gets centered underline */
+#portfolio .content-section-heading h2::after {
   content: '';
   position: absolute;
   bottom: -0.5rem;
@@ -11227,7 +11241,7 @@ footer.footer .social-link img {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(221,210,186,0.9), rgba(221,210,186,0.7));
+  background: linear-gradient(135deg, rgba(221,210,186,0.3), rgba(221,210,186,0.1));
   z-index: 1;
 }
 
