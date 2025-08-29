@@ -55,14 +55,14 @@
 
 .unless-option .portfolio-item {
   width: 100%;
-  height: 100%;
+  height: auto;
   margin-bottom: var(--spacing-sm);
 }
 
 .unless-option .portfolio-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border-radius: var(--border-radius-md);
 }
 
@@ -73,24 +73,30 @@
 
 /* Hover effect to show both options and expand container */
 .unless-puzzle-container:hover {
-  height: 1200px;
-  z-index: 100;
-}
-
-.unless-puzzle-container:hover .unless-puzzle-main {
-  opacity: 0;
+  height: auto;
+  min-height: 800px;
+  z-index: 1000;
+  width: 100%;
+  position: relative;
 }
 
 .unless-puzzle-container:hover .unless-puzzle-hover {
   opacity: 1;
   visibility: visible;
-  height: 100%;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  z-index: 1001;
 }
 
 /* Responsive adjustments for the unless puzzle hover */
 @media (max-width: 768px) {
   .unless-puzzle-container:hover {
-    height: 1200px;
+    height: auto;
   }
   
   .unless-puzzle-hover {
@@ -104,12 +110,31 @@
   }
   
   .unless-option .portfolio-item {
-    height: 100%;
+    width: fit-content;
+    height: auto;
+    margin: 0 auto;
   }
   
   .unless-option .portfolio-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+/* Medium screen adjustments to prevent cropping */
+@media (min-width: 769px) and (max-width: 991px) {
+  .unless-option .portfolio-item {
+    width: fit-content;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  .unless-option .portfolio-item img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
   }
 }
