@@ -656,8 +656,10 @@ progress {
 }
 
 .img-fluid {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 .img-thumbnail {
@@ -11343,12 +11345,16 @@ footer.footer .social-link img {
     margin-bottom: 1rem;
   }
   .portfolio-item img {
-    transition: -webkit-clip-path 0.25s ease-out;
-    transition: clip-path 0.25s ease-out;
-    transition: clip-path 0.25s ease-out, -webkit-clip-path 0.25s ease-out;
-    -webkit-clip-path: inset(-1px);
-            clip-path: inset(-1px);
-  }
+  transition: -webkit-clip-path 0.25s ease-out;
+  transition: clip-path 0.25s ease-out;
+  transition: clip-path 0.25s ease-out, -webkit-clip-path 0.25s ease-out;
+  -webkit-clip-path: inset(-1px);
+          clip-path: inset(-1px);
+  max-width: 75%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
   .portfolio-item:hover img {
     -webkit-clip-path: inset(2rem);
             clip-path: inset(2rem);
@@ -11400,11 +11406,13 @@ footer.footer .social-link img {
 .service-icon img {
   position: relative;
   z-index: 2;
+  max-width: 70%;
+  height: auto;
 }
 
 .icon {
   margin-top: -10%;
-  max-width: 50%;
+  max-width: 35%;
 }
 
 .icon-heart{
@@ -11448,9 +11456,11 @@ footer.footer .social-link img {
 }
 
 .donation-card img {
-  width: 100%;
+  width: 70%;
   height: auto;
   transition: var(--transition-normal);
+  margin: 0 auto;
+  display: block;
 }
 
 .donation-card:hover img {
