@@ -10963,7 +10963,7 @@ html {
 
 #sidebar-wrapper {
   position: fixed;
-  z-index: 2;
+  z-index: 9999;
   right: 0;
   width: 250px;
   height: 100%;
@@ -11058,7 +11058,7 @@ html {
   color: #fff;
   background: rgba(52, 58, 64, 0.5);
   line-height: 50px;
-  z-index: 999;
+  z-index: 10000;
 }
 .menu-toggle:focus, .menu-toggle:hover {
   color: #fff;

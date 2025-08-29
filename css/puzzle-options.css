@@ -1,24 +1,24 @@
-/* Unless Puzzle Hover Effect */
-.unless-puzzle-container {
+/* Generic Puzzle Options Hover Effect */
+.puzzle-options-container {
   position: relative;
   overflow: visible;
   transition: var(--transition-normal);
 }
 
-.unless-puzzle-options {
+.puzzle-options-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.unless-puzzle-main {
+.puzzle-options-main {
   transition: var(--transition-normal);
   opacity: 1;
   width: 100%;
   height: auto;
 }
 
-.unless-puzzle-hover {
+.puzzle-options-hover {
   position: absolute;
   top: 0;
   left: 0;
@@ -37,7 +37,7 @@
   z-index: 10;
 }
 
-.unless-option {
+.puzzle-option {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -48,31 +48,31 @@
   transition: var(--transition-fast);
 }
 
-.unless-option:hover {
+.puzzle-option:hover {
   background: rgba(248, 249, 250, 1);
   transform: scale(1.02);
 }
 
-.unless-option .portfolio-item {
+.puzzle-option .portfolio-item {
   width: 100%;
   height: auto;
   margin-bottom: var(--spacing-sm);
 }
 
-.unless-option .portfolio-item img {
+.puzzle-option .portfolio-item img {
   width: 100%;
   height: auto;
   object-fit: contain;
   border-radius: var(--border-radius-md);
 }
 
-.unless-option .caption-content {
+.puzzle-option .caption-content {
   text-align: center;
   margin: 0;
 }
 
 /* Hover effect to show both options and expand container */
-.unless-puzzle-container:hover {
+.puzzle-options-container:hover {
   height: auto;
   min-height: 800px;
   z-index: 1000;
@@ -80,7 +80,7 @@
   position: relative;
 }
 
-.unless-puzzle-container:hover .unless-puzzle-hover {
+.puzzle-options-container:hover .puzzle-options-hover {
   opacity: 1;
   visibility: visible;
   height: auto;
@@ -93,29 +93,29 @@
   z-index: 1001;
 }
 
-/* Responsive adjustments for the unless puzzle hover */
+/* Responsive adjustments for the puzzle options hover */
 @media (max-width: 768px) {
-  .unless-puzzle-container:hover {
+  .puzzle-options-container:hover {
     height: auto;
   }
   
-  .unless-puzzle-hover {
+  .puzzle-options-hover {
     flex-direction: column;
     gap: var(--spacing-xs);
     padding: var(--spacing-xs);
   }
   
-  .unless-option {
+  .puzzle-option {
     padding: var(--spacing-xs);
   }
   
-  .unless-option .portfolio-item {
+  .puzzle-option .portfolio-item {
     width: fit-content;
     height: auto;
     margin: 0 auto;
   }
   
-  .unless-option .portfolio-item img {
+  .puzzle-option .portfolio-item img {
     width: auto;
     height: auto;
     max-width: 100%;
@@ -125,13 +125,13 @@
 
 /* Medium screen adjustments to prevent cropping */
 @media (min-width: 769px) and (max-width: 991px) {
-  .unless-option .portfolio-item {
+  .puzzle-option .portfolio-item {
     width: fit-content;
     height: auto;
     margin: 0 auto;
   }
   
-  .unless-option .portfolio-item img {
+  .puzzle-option .portfolio-item img {
     width: auto;
     height: auto;
     max-width: 100%;
