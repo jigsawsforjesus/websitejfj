@@ -11590,6 +11590,17 @@ footer.footer .social-link img {
   outline-offset: 2px;
 }
 
+/* Biblical-style font for puzzle titles */
+.biblical-text {
+  font-family: 'Georgia', 'Palatino', 'Palatino Linotype', 'Times New Roman', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
 /* Modern selection styles */
 ::selection {
   background: var(--primary-color);
