@@ -18,6 +18,7 @@
   height: auto;
   margin: 0 auto;
   display: block;
+  padding: 1rem 0;
 }
 
 .puzzle-options-hover {
