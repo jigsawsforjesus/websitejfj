@@ -1,80 +1,170 @@
-/*!
-* Start Bootstrap - Stylish Portfolio v6.0.6 (https://startbootstrap.com/theme/stylish-portfolio)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-stylish-portfolio/blob/master/LICENSE)
-*/
-window.addEventListener('DOMContentLoaded', event => {
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.querySelector('.nav-toggle');
+  const siteNav = document.querySelector('.site-nav');
+  const scrollTop = document.querySelector('.scroll-top');
+  const puzzleContainers = document.querySelectorAll('.puzzle-options-container');
+  let backdrop = document.querySelector('.puzzle-backdrop');
+  let activeModal = null;
 
-    const sidebarWrapper = document.getElementById('sidebar-wrapper');
-    let scrollToTopVisible = false;
-    // Closes the sidebar menu
-    const menuToggle = document.body.querySelector('.menu-toggle');
-    menuToggle.addEventListener('click', event => {
-        event.preventDefault();
-        sidebarWrapper.classList.toggle('active');
-        _toggleMenuIcon();
-        menuToggle.classList.toggle('active');
-    })
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'puzzle-backdrop';
+    document.body.appendChild(backdrop);
+  }
 
-    // Closes responsive menu when a scroll trigger link is clicked
-    var scrollTriggerList = [].slice.call(document.querySelectorAll('#sidebar-wrapper .js-scroll-trigger'));
-    scrollTriggerList.map(scrollTrigger => {
-        scrollTrigger.addEventListener('click', () => {
-            sidebarWrapper.classList.remove('active');
-            menuToggle.classList.remove('active');
-            _toggleMenuIcon();
-        })
-    });
+  const imageBackdrop = document.createElement('div');
+  imageBackdrop.className = 'image-lightbox-backdrop';
+  document.body.appendChild(imageBackdrop);
 
-    function _toggleMenuIcon() {
-        const menuToggleBars = document.body.querySelector('.menu-toggle > .fa-bars');
-        const menuToggleTimes = document.body.querySelector('.menu-toggle > .fa-xmark');
-        if (menuToggleBars) {
-            menuToggleBars.classList.remove('fa-bars');
-            menuToggleBars.classList.add('fa-xmark');
-        }
-        if (menuToggleTimes) {
-            menuToggleTimes.classList.remove('fa-xmark');
-            menuToggleTimes.classList.add('fa-bars');
-        }
+  const imageLightbox = document.createElement('div');
+  imageLightbox.className = 'image-lightbox';
+  imageLightbox.setAttribute('role', 'dialog');
+  imageLightbox.setAttribute('aria-modal', 'true');
+  imageLightbox.setAttribute('aria-label', 'Expanded puzzle image');
+  imageLightbox.innerHTML = `
+    <button type="button" class="image-lightbox-close" aria-label="Close expanded image">&times;</button>
+    <img src="" alt="" />
+  `;
+  document.body.appendChild(imageLightbox);
+
+  const imageLightboxImg = imageLightbox.querySelector('img');
+  const imageLightboxClose = imageLightbox.querySelector('.image-lightbox-close');
+
+  /* Portal variant modals to body so they center on the viewport */
+  puzzleContainers.forEach((container) => {
+    const modal = container.querySelector('.puzzle-options-hover');
+    if (!modal) return;
+
+    modal.classList.add('puzzle-variant-modal');
+    modal.classList.remove('puzzle-options-hover');
+    document.body.appendChild(modal);
+    container._variantModal = modal;
+  });
+
+  const closeImageLightbox = () => {
+    imageLightbox.classList.remove('is-visible');
+    imageBackdrop.classList.remove('visible');
+    imageLightboxImg.removeAttribute('src');
+    imageLightboxImg.alt = '';
+  };
+
+  const closeModal = () => {
+    if (activeModal) {
+      activeModal.classList.remove('is-visible');
+      activeModal = null;
+    }
+    backdrop.classList.remove('visible');
+    puzzleContainers.forEach((c) => c.classList.remove('is-open'));
+  };
+
+  const closeAllOverlays = () => {
+    closeModal();
+    closeImageLightbox();
+  };
+
+  const openImageLightbox = (img) => {
+    closeModal();
+    imageLightboxImg.src = img.currentSrc || img.src;
+    imageLightboxImg.alt = img.alt;
+    imageBackdrop.classList.add('visible');
+    imageLightbox.classList.add('is-visible');
+    imageLightboxClose.focus();
+  };
+
+  const openModal = (container) => {
+    closeImageLightbox();
+    const modal = container._variantModal;
+    if (!modal) return;
+
+    if (activeModal && activeModal !== modal) {
+      activeModal.classList.remove('is-visible');
     }
 
-    // Scroll to top button appear
-    document.addEventListener('scroll', () => {
-        const scrollToTop = document.body.querySelector('.scroll-to-top');
-        if (document.documentElement.scrollTop > 100) {
-            if (!scrollToTopVisible) {
-                fadeIn(scrollToTop);
-                scrollToTopVisible = true;
-            }
-        } else {
-            if (scrollToTopVisible) {
-                fadeOut(scrollToTop);
-                scrollToTopVisible = false;
-            }
-        }
-    })
-})
+    activeModal = modal;
+    container.classList.add('is-open');
+    backdrop.classList.add('visible');
+    modal.classList.add('is-visible');
+  };
 
-function fadeOut(el) {
-    el.style.opacity = 1;
-    (function fade() {
-        if ((el.style.opacity -= .1) < 0) {
-            el.style.display = "none";
-        } else {
-            requestAnimationFrame(fade);
-        }
-    })();
-};
+  if (navToggle && siteNav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = siteNav.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
 
-function fadeIn(el, display) {
-    el.style.opacity = 0;
-    el.style.display = display || "block";
-    (function fade() {
-        var val = parseFloat(el.style.opacity);
-        if (!((val += .1) > 1)) {
-            el.style.opacity = val;
-            requestAnimationFrame(fade);
+    siteNav.querySelectorAll('.js-scroll').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const href = link.getAttribute('href');
+        if (!href || !href.startsWith('#') || href === '#') return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        event.preventDefault();
+        const header = document.querySelector('.site-header');
+        const headerHeight = header ? header.offsetHeight : 84;
+        const offset = headerHeight + 20;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({ top, behavior: 'smooth' });
+
+        siteNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open menu');
+      });
+    });
+  }
+
+  document.querySelectorAll('.product-image-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const img = trigger.querySelector('img');
+      if (img) openImageLightbox(img);
+    });
+  });
+
+  puzzleContainers.forEach((container) => {
+    const trigger = container.querySelector('.puzzle-options-trigger');
+
+    if (trigger) {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (container.classList.contains('is-open')) {
+          closeModal();
+        } else {
+          openModal(container);
         }
-    })();
-};
+      });
+    }
+  });
+
+  backdrop.addEventListener('click', closeModal);
+  imageBackdrop.addEventListener('click', closeImageLightbox);
+
+  imageLightboxClose.addEventListener('click', (event) => {
+    event.preventDefault();
+    closeImageLightbox();
+  });
+
+  document.querySelectorAll('.variant-modal-close').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      closeModal();
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeAllOverlays();
+  });
+
+  const toggleScrollTop = () => {
+    if (!scrollTop) return;
+    scrollTop.classList.toggle('visible', window.scrollY > 240);
+  };
+
+  window.addEventListener('scroll', toggleScrollTop, { passive: true });
+  toggleScrollTop();
+});

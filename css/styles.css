@@ -10886,12 +10886,19 @@ html {
   padding-bottom: var(--spacing-xxl);
 }
 
+.content-section-heading {
+  width: 100%;
+  text-align: center;
+}
+
 .content-section-heading h2, .content-section-heading .h2 {
   font-size: 3rem;
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--spacing-md);
   position: relative;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .content-section-heading h2::after, .content-section-heading .h2::after {
@@ -11321,7 +11328,8 @@ footer.footer .social-link img {
 }
 @media (min-width: 992px) {
   .portfolio-item-container {
-    max-width: none;
+    max-width: 100%;
+    width: 100%;
     margin: 0;
   }
   
@@ -11344,16 +11352,19 @@ footer.footer .social-link img {
     margin-right: 2rem;
     margin-bottom: 1rem;
   }
-  .portfolio-item img {
-  transition: -webkit-clip-path 0.25s ease-out;
-  transition: clip-path 0.25s ease-out;
-  transition: clip-path 0.25s ease-out, -webkit-clip-path 0.25s ease-out;
-  -webkit-clip-path: inset(-1px);
-          clip-path: inset(-1px);
-  max-width: 75%;
-  height: auto;
-  margin: 0 auto;
-  display: block;
+  .portfolio-item img,
+  .portfolio-item-container img.img-fluid {
+    transition: -webkit-clip-path 0.25s ease-out;
+    transition: clip-path 0.25s ease-out;
+    transition: clip-path 0.25s ease-out, -webkit-clip-path 0.25s ease-out;
+    -webkit-clip-path: inset(-1px);
+            clip-path: inset(-1px);
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
 }
   .portfolio-item:hover img {
     -webkit-clip-path: inset(2rem);
@@ -11429,7 +11440,14 @@ footer.footer .social-link img {
   grid-template-columns: 1fr;
   grid-template-rows: 2fr;
   place-items: center;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 992px) {
+  .grid-container-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+  }
 }
 
 .grid-container-column{
